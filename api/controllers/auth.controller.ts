@@ -21,7 +21,8 @@ export const signup: RequestHandler = async (req, res, next) => {
 
   try {
     await newUser.save();
-    res.json({ message: 'User created' });
+    // res.json({ message: 'User created' });
+    res.json('Signup successful');
   } catch (error) {
     next(error);
   }
