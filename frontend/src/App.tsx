@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import PrivateRoute from './components/PrivateRoute';
 
 const Layout = () => {
   return (
@@ -38,13 +39,19 @@ const router = createBrowserRouter([
         path: '/sign-up',
         element: <SignUp />,
       },
-      {
-        path: '/dashboard',
-        element: <Dashboard />,
-      },
+
       {
         path: '/projects',
         element: <Projects />,
+      },
+      {
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: '/dashboard',
+            element: <Dashboard />,
+          },
+        ],
       },
     ],
   },
